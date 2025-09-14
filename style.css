@@ -1,0 +1,338 @@
+/* Reset global */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden; /* bloque scroll horizontal */
+  overflow-y: auto;   /* garde scroll vertical */
+  font-family: 'Merriweather', serif;
+  }
+
+
+/* Page wrapper */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* commence en haut pour scroller */
+  min-height: 100vh;
+  padding: 20px;
+  background-image: url(fon2.jpg) ;
+  background-size: cover; /* prend toute la page en 1 seule fois */
+}
+
+
+/* Container principal */
+.wrapper {
+  background-color: hsla(0, 0%, 100%, 0.829);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 
+    rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset,
+    rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+
+  width: 100%;
+  max-width: 1000px; /* limite max */
+  margin: 80px auto;
+}
+
+
+/* Texte */
+h1, h2, h3 {
+  font-family: 'Great Vibes', cursive;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+
+}
+
+/* Profil */
+.profile-top {
+  height: 250px;
+  background: url("fond.jpg") no-repeat center/cover;
+}
+.profile-photo {
+  text-align: center;
+  margin-top: -60px; /* chevauche l’image du haut */
+}
+.profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 4px solid white;
+  background: url("EJ.png") no-repeat center/cover;
+ display: inline-block;
+}
+
+.profile-bottom {
+  padding: 20px;
+  text-align: center;
+}
+
+.name {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.email a, .ville a {
+  color: #333;
+  text-decoration: none;
+  text-align: center;
+}
+
+/* Liens de navigation */
+.profile-stats {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.profile-stats .link {
+  text-decoration: none;
+  font-weight: bold;
+  color: #000000;
+}
+
+/* Lieu */
+.lieu {
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* Bouton retour */
+button.back {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background: #aa3c9d;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+button.back:hover {
+  background: #583826;
+}
+.profile-stats a {
+  text-decoration: none;
+  color: black;
+  padding: 0 60px;
+  border-right: 1px solid black;
+  align-items: center;
+
+}
+
+.profile-stats a:last-child {
+  border-right: none; /* pas de trait sur le dernier */
+}
+
+.page {
+  display: none;              /* toutes les pages sont cachées */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.page.active {
+  display: block;             /* seule la page active est visible */
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page.slide-out {
+  opacity: 0;
+  transform: translateY(-20px); /* petite animation de sortie */
+}
+a[data-target="shabbat"] {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+/* Zoom léger uniquement au survol du lien Shabbat */
+a[data-target="shabbat"]:hover {
+  transform: scale(1.1);
+  color: pink;
+}
+a[data-target="soiree"] {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+/* Zoom léger uniquement au survol du lien Shabbat */
+a[data-target="soiree"]:hover {
+  transform: scale(1.1);
+  color: pink;
+}
+a[data-target="houppah"] {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+/* Zoom léger uniquement au survol du lien Shabbat */
+a[data-target="houppah"]:hover {
+  transform: scale(1.1);
+  color: pink;
+}
+
+#shabbat {
+  background: rgba(255, 255, 255, 0.2); /* Transparence pour voir le fond derrière */
+  backdrop-filter: blur(15px); /* Flou élégant */
+  -webkit-backdrop-filter: blur(15px); /* Support Safari */
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 700px;
+  margin: auto;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); /* Ombre douce */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Titre */
+#shabbat h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Texte */
+#shabbat p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #000000;
+}
+
+/* Accentuation pour lieu & heure */
+#shabbat strong {
+  color: #ffe57f;
+  font-weight: bold;
+}
+#soiree {
+  background: rgba(255, 255, 255, 0.2); /* Transparence pour voir le fond derrière */
+  backdrop-filter: blur(15px); /* Flou élégant */
+  -webkit-backdrop-filter: blur(15px); /* Support Safari */
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 700px;
+  margin: auto;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); /* Ombre douce */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Titre */
+#soiree h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Texte */
+#soiree p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #000000;
+}
+
+/* Accentuation pour lieu & heure */
+#soiree strong {
+  color: #ffe57f;
+  font-weight: bold;
+}
+#houppah{
+  background: rgba(255, 255, 255, 0.2); /* Transparence pour voir le fond derrière */
+  backdrop-filter: blur(15px); /* Flou élégant */
+  -webkit-backdrop-filter: blur(15px); /* Support Safari */
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 700px;
+  margin: auto;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); /* Ombre douce */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Titre */
+#houppah h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Texte */
+#houppah p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #000000;
+}
+
+/* Accentuation pour lieu & heure */
+#houppah strong {
+  color: #ffe57f;
+  font-weight: bold;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: inherit; /* reprend l’image */
+  background-size: cover; /* garde une seule image */
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: blur(4px);
+  transform: scale(1.1); /* évite les bords flous */
+  z-index: -1;
+}
+.email a {
+  display: inline-block;
+  transition: transform 0.2s ease, color 0.2s ease;
+  font-weight: bold;
+}
+
+.email a:hover {
+  transform: scale(1.1);
+  color: pink;
+}
+/* Nom */
+.name {
+  font-family: 'Great Vibes', cursive;
+  font-size: 42px;
+  font-weight: normal;
+  color: #2c2c2c; /* noir doux */
+  margin: 10px 0;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* subtil relief */
+}
+
+/* Date */
+.date {
+  font-size: 18px;
+  font-weight: 500;
+  color: #777;
+  margin: 5px 0 15px;
+  letter-spacing: 1px;
+  font-style: italic;
+  position: relative;
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
