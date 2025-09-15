@@ -336,3 +336,14 @@ body::before {
   background: rgba(255, 255, 255, 0.6);
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
+/* Sur mobile */
+@media (max-width: 768px) {
+  .profile-stats {
+    gap: 8px; /* réduit encore l’écart entre boutons */
+  }
+
+  .profile-stats a {
+    font-size: 14px;
+    padding: 5px 8px; /* boutons plus petits et rapprochés */
+  }
+}
